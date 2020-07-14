@@ -23,8 +23,8 @@ python -u test.py -r ./results/miniImagenet_IMAGE2TASK_Conv64F_5way_5shot_159263
 
 ## Note
 Sorry about the mistakes in the Eq.(4) and the Eq.(7), 
-the Eq.(4) is a step function, and Eq.(7) is still an approximation of the Eq.(4) with the adaptive threshold,
-both of them repeatedly introduce the process of Eq.(5),
+the Eq.(4) is a step function, and Eq.(7) is the approximation of the Eq.(4) with the adaptive threshold,
+both of them repeatedly introduce the process of the Eq.(5),
 the paper after correction is [here](https://github.com/LegenDong/ATL-Net/pdf/ATL-Net_Update.pdf).
 ![avatar](./images/correction.jpg)
 
