@@ -10,16 +10,19 @@ Learning Task-aware Local Representations for Few-shot Learning, IJCAI 2020
 Please refer to [DN4](https://github.com/WenbinLee/DN4).
 
 ##  Train & Test
+DataSet is miniImagenet, CUB, StanfordCar or StanfordDog.
+
 - Train:
 ```bash
-python -u trainer.py -c ./config/miniImageNet_Conv64F_5way_1shot.json -d 0
-python -u trainer.py -c ./config/miniImageNet_Conv64F_5way_5shot.json -d 0
+python -u trainer.py -c ./config/${DataSet}_Conv64F_5way_1shot.json -d 0
+python -u trainer.py -c ./config/${DataSet}_Conv64F_5way_5shot.json -d 0
 ```
 - Test:
 ```bash
-python -u test.py -r ./results/miniImagenet_IMAGE2TASK_Conv64F_5way_1shot_1592608591 -d 0
-python -u test.py -r ./results/miniImagenet_IMAGE2TASK_Conv64F_5way_5shot_1592635267 -d 0
+python -u test.py -r ./results/${DataSet}_Conv64F_5way_1shot -d 0
+python -u test.py -r ./results/${DataSet}_Conv64F_5way_5shot -d 0
 ```
+
 
 ## Note
 Sorry about the mistakes in the Eq.(4) and the Eq.(7), 
@@ -32,25 +35,19 @@ the paper after correction is [here](https://github.com/LegenDong/ATL-Net/blob/m
 ## Citation
 If you use this code for your research, please cite our paper.
 ```
-@inproceedings{DBLP:conf/ijcai/DongLHGG20,
-  author    = {Chuanqi Dong and
-               Wenbin Li and
-               Jing Huo and
-               Zheng Gu and
-               Yang Gao},
-  editor    = {Christian Bessiere},
+@inproceedings{ijcai2020-100,
   title     = {Learning Task-aware Local Representations for Few-shot Learning},
+  author    = {Dong, Chuanqi and Li, Wenbin and Huo, Jing and Gu, Zheng and Gao, Yang},
   booktitle = {Proceedings of the Twenty-Ninth International Joint Conference on
-               Artificial Intelligence, {IJCAI} 2020 [scheduled for July 2020, Yokohama,
-               Japan, postponed due to the Corona pandemic]},
+               Artificial Intelligence, {IJCAI-20}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},             
+  editor    = {Christian Bessiere}	
   pages     = {716--722},
-  publisher = {ijcai.org},
   year      = {2020},
-  url       = {https://doi.org/10.24963/ijcai.2020/100},
+  month     = {7},
+  note      = {Main track}
   doi       = {10.24963/ijcai.2020/100},
-  timestamp = {Sat, 11 Jul 2020 14:56:00 +0200},
-  biburl    = {https://dblp.org/rec/conf/ijcai/DongLHGG20.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+  url       = {https://doi.org/10.24963/ijcai.2020/100},
 }
 ```
 

@@ -1,0 +1,47 @@
+{
+  "arch": {
+    "atten_scale_value": 50,
+    "base_model": "Conv64F",
+    "base_model_info": {},
+    "from_value": 0.4,
+    "inplanes": 64,
+    "scale_value": 30,
+    "transfer_name": "W",
+    "value_interval": 0.6
+  },
+  "data_name": "StanfordDog",
+  "general": {
+    "data_root": "/data/dcq/DataSets/StanfordDog",
+    "image2level": "image2task",
+    "image_size": 84,
+    "print_freq": 100,
+    "query_num": 15,
+    "save_freq": 5,
+    "save_root": "./results/",
+    "shot_num": 1,
+    "way_num": 5,
+    "workers_num": 8
+  },
+  "n_gpu": 1,
+  "test": {
+    "batch_size": 1,
+    "episode_num": 1000
+  },
+  "train": {
+    "batch_size": 1,
+    "episode_num": 3000,
+    "epochs": 40,
+    "loss": {
+      "args": {},
+      "name": "CrossEntropyLoss"
+    },
+    "lr_scheduler": {
+      "args": {
+        "gamma": 0.5,
+        "step_size": 5
+      },
+      "name": "StepLR"
+    },
+    "optim_lr": 0.001
+  }
+}

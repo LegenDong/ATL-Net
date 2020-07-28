@@ -147,9 +147,8 @@ def validate(val_loader, model, criterion, epoch_index, device, fout_file, image
 
 
 def main(config):
-    result_name = '{}_{}_{}_{}way_{}shot_{}' \
-        .format(config['data_name'], config['general']['image2level'].upper(), config['arch']['base_model'],
-                config['general']['way_num'], config['general']['shot_num'], int(time.time()))
+    result_name = '{}_{}_{}way_{}shot'.format(config['data_name'], config['arch']['base_model'],
+                                              config['general']['way_num'], config['general']['shot_num'], )
     save_path = os.path.join(config['general']['save_root'], result_name)
     if not os.path.exists(save_path):
         os.mkdir(save_path)

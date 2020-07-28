@@ -1,0 +1,84 @@
+{'arch': {'atten_scale_value': 50, 'base_model': 'Conv64F', 'base_model_info': {}, 'from_value': 0.4, 'inplanes': 64, 'scale_value': 30, 'transfer_name': 'W', 'value_interval': 0.6}, 'data_name': 'StanfordCar', 'general': {'data_root': '/data/dcq/DataSets/StanfordCar', 'image2level': 'image2task', 'image_size': 84, 'print_freq': 100, 'query_num': 15, 'save_freq': 5, 'save_root': './results/', 'shot_num': 5, 'way_num': 5, 'workers_num': 8}, 'n_gpu': 1, 'test': {'batch_size': 1, 'episode_num': 1000}, 'train': {'batch_size': 1, 'episode_num': 3000, 'epochs': 40, 'loss': {'args': {}, 'name': 'CrossEntropyLoss'}, 'lr_scheduler': {'args': {'gamma': 0.5, 'step_size': 5}, 'name': 'StepLR'}, 'optim_lr': 0.001}}
+ALTNet(
+  (features): CNNEncoder(
+    (layer1): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.2, inplace=True)
+      (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (layer2): Sequential(
+      (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.2, inplace=True)
+      (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (layer3): Sequential(
+      (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.2, inplace=True)
+    )
+    (layer4): Sequential(
+      (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.2, inplace=True)
+    )
+  )
+  (metric_layer): ATLModule(
+    (W): Sequential(
+      (0): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): LeakyReLU(negative_slope=0.2, inplace=True)
+    )
+    (attention_layer): AEAModule(
+      (f_psi): Sequential(
+        (0): Linear(in_features=64, out_features=4, bias=True)
+        (1): LeakyReLU(negative_slope=0.2, inplace=True)
+        (2): Linear(in_features=4, out_features=1, bias=True)
+        (3): Sigmoid()
+      )
+    )
+  )
+)
+The num of the test_dataset: 600
+============ Testing on the test set ============
+Test-(0): [100/600]	Time 0.052 (0.162)	Loss 0.952 (1.038)	Prec@1 92.000 (88.620)
+Test-(0): [200/600]	Time 0.052 (0.154)	Loss 1.023 (1.038)	Prec@1 93.333 (88.299)
+Test-(0): [300/600]	Time 0.054 (0.147)	Loss 0.989 (1.034)	Prec@1 90.667 (88.567)
+Test-(0): [400/600]	Time 0.053 (0.145)	Loss 1.028 (1.031)	Prec@1 93.333 (88.891)
+Test-(0): [500/600]	Time 0.052 (0.144)	Loss 1.181 (1.032)	Prec@1 70.667 (88.971)
+Test Accuracy: 89.01777648925781	 h: 0.5025668740272522
+The num of the test_dataset: 600
+============ Testing on the test set ============
+Test-(1): [100/600]	Time 0.053 (0.150)	Loss 0.976 (1.025)	Prec@1 94.667 (89.505)
+Test-(1): [200/600]	Time 0.053 (0.146)	Loss 1.088 (1.029)	Prec@1 88.000 (89.313)
+Test-(1): [300/600]	Time 0.053 (0.143)	Loss 0.886 (1.027)	Prec@1 93.333 (89.240)
+Test-(1): [400/600]	Time 0.053 (0.141)	Loss 0.911 (1.030)	Prec@1 97.333 (88.998)
+Test-(1): [500/600]	Time 0.052 (0.142)	Loss 0.926 (1.031)	Prec@1 93.333 (88.881)
+Test Accuracy: 88.87333679199219	 h: 0.49996328353881836
+The num of the test_dataset: 600
+============ Testing on the test set ============
+Test-(2): [100/600]	Time 0.052 (0.168)	Loss 1.049 (1.032)	Prec@1 88.000 (89.611)
+Test-(2): [200/600]	Time 0.053 (0.157)	Loss 0.962 (1.035)	Prec@1 94.667 (89.579)
+Test-(2): [300/600]	Time 0.622 (0.154)	Loss 1.135 (1.031)	Prec@1 88.000 (89.595)
+Test-(2): [400/600]	Time 0.053 (0.154)	Loss 1.179 (1.030)	Prec@1 78.667 (89.559)
+Test-(2): [500/600]	Time 0.053 (0.150)	Loss 0.867 (1.028)	Prec@1 98.667 (89.520)
+Test Accuracy: 89.46221923828125	 h: 0.45932725071907043
+The num of the test_dataset: 600
+============ Testing on the test set ============
+Test-(3): [100/600]	Time 0.448 (0.161)	Loss 1.177 (1.040)	Prec@1 78.667 (88.607)
+Test-(3): [200/600]	Time 0.053 (0.149)	Loss 0.941 (1.029)	Prec@1 92.000 (89.274)
+Test-(3): [300/600]	Time 0.052 (0.143)	Loss 0.889 (1.024)	Prec@1 96.000 (89.643)
+Test-(3): [400/600]	Time 0.053 (0.144)	Loss 0.920 (1.020)	Prec@1 97.333 (89.915)
+Test-(3): [500/600]	Time 0.128 (0.147)	Loss 1.188 (1.022)	Prec@1 77.333 (89.852)
+Test Accuracy: 89.77777862548828	 h: 0.4638519585132599
+The num of the test_dataset: 600
+============ Testing on the test set ============
+Test-(4): [100/600]	Time 0.054 (0.163)	Loss 0.997 (1.038)	Prec@1 90.667 (89.122)
+Test-(4): [200/600]	Time 0.053 (0.152)	Loss 1.003 (1.030)	Prec@1 92.000 (89.479)
+Test-(4): [300/600]	Time 0.053 (0.145)	Loss 1.032 (1.028)	Prec@1 84.000 (89.449)
+Test-(4): [400/600]	Time 0.052 (0.145)	Loss 1.045 (1.025)	Prec@1 82.667 (89.257)
+Test-(4): [500/600]	Time 0.054 (0.141)	Loss 0.986 (1.023)	Prec@1 90.667 (89.573)
+Test Accuracy: 89.54444885253906	 h: 0.4542224109172821
+Aver Accuracy: 89.335	 Aver h: 0.476
+............Testing is end............
